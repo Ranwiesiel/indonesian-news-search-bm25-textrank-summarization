@@ -1,5 +1,5 @@
 from preprocessing import *
-from schema import *
+from schema import schema
 from whoosh.index import create_in
 
 import os

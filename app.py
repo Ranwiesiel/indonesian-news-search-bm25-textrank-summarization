@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 from whoosh.qparser import QueryParser
-from schema import schema
 from whoosh.index import open_dir
 import os
 
@@ -24,7 +23,7 @@ def index():
 
         rawquery = rawquery.lower()
 
-        qp = QueryParser("content_processed", schema=schema)
+        qp = QueryParser("original_content", schema=ix.schema)
         q = qp.parse(rawquery)
 
         with ix.searcher() as searcher:
